@@ -14,13 +14,9 @@ public class TestClassRoom {
 
 
     ClassRoom cr = new ClassRoom();
-
-
     @Test
     public void hashMappingTest(){
         Set<Person> s = new HashSet<Person>(cr.getRoster().values());
-
-
         Iterator<Person> it = s.iterator();
         while(it.hasNext()){
             Person p = it.next();
