@@ -2,6 +2,11 @@ package com.dtcc.projects;
 
 public class Instructor extends Person implements Teacher {
 
+    public Instructor(){}
+
+    public Instructor(String name){
+        this.name = name;
+    }
 
     @Override
     public void teach(Student student, double numberOfHours) {
