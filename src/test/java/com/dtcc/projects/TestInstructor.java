@@ -19,7 +19,7 @@ public class TestInstructor {
         double bookMark1 = cs.getTotalStudyTime();
 
         //Zan teaches student, have to call teacher interface
-        zc.teach(cs, 2);
+        zc.teach(cs, 2.0);
 
         //Get students study time
         double bookMark2 = cs.getTotalStudyTime();
