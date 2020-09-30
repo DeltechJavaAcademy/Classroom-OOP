@@ -1,23 +1,28 @@
 package com.dtcc.projects;
 
-import jdk.internal.net.http.common.Pair;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import java.util.HashMap;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class TestClassRoom {
 
     @Test
-    public void rosterTest(){
+    public void testRoster(){
+        //gets roster
+        HashMap<String, Person> clazz = Classroom.getRoster();
 
-        //Teachers: {"Brian", "Kaleb", "Zan"}
-        //Students: { "Jessica", "Emad", "Cedric",
-        //             "Lolu", "Apoorva", "Vara",
-        //             "Craig", "Robert", "Stephen",
-        //              "Ferdinand", "Charu" }
-        Map<String,String> temp_map = Classroom.getRoster();
+        for(Instructor instructor: DelTech.getInstructors()){
+            //Ensures instructor exists in class
+            Assert.assertTrue(clazz.containsKey(instructor.getName()));
+            //Ensure names match
+            Assert.assertEquals(instructor, clazz.get(instructor.getName()));
+        }
+        for(Student student: JavaAcademy.getStudents()){
+            Assert.assertTrue(clazz.containsKey(student.getName()));
+            Assert.assertEquals(student, clazz.get(student.getName()));
+        }
 
     }
 }
